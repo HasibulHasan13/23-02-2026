@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+<html class="dark" lang="en"><head></head><body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col relative overflow-x-hidden selection:bg-primary selection:text-white">﻿
 
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Earning Withdrawal - ARS Surveys</title>
 <!-- Fonts -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <!-- Theme Configuration -->
@@ -89,8 +89,8 @@
             opacity: 0.4;
         }
     </style>
-</head>
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col relative overflow-x-hidden selection:bg-primary selection:text-white">
+
+
 <!-- Background Orbs for Depth -->
 <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
 <div class="orb bg-primary w-96 h-96 top-[-100px] left-[-100px] opacity-20"></div>
@@ -114,7 +114,7 @@
 <a class="text-slate-300 hover:text-white text-sm font-semibold transition-colors" href="#">Dashboard</a>
 <a class="text-white text-sm font-bold bg-white/5 px-4 py-2 rounded-full border border-white/10" href="#">Wallet</a>
 <a class="text-slate-300 hover:text-white text-sm font-semibold transition-colors" href="#">Surveys</a>
-<a class="text-slate-300 hover:text-white text-sm font-semibold transition-colors" href="#">Settings</a>
+<a class="text-slate-300 hover:text-white text-sm font-semibold transition-colors" href="support-help-center.html">Settings</a>
 </nav>
 <!-- Right Actions -->
 <div class="flex items-center gap-4">
@@ -126,7 +126,7 @@
 <span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full animate-pulse"></span>
 </button>
 <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-slate-700 to-slate-600 border border-white/10 overflow-hidden cursor-pointer">
-<img alt="User profile" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" data-alt="Portrait of a young woman with a neutral expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSVY5TcG-Svc8J0yoH4rDooeNB14BryGpn2c9AWMECbZKGuF_wZbCriyt0mOHXLQDH0rLJgdS9wvW-5aM3bbvA_JpNUgj1ALYJMek9PoxWByyOsrar7d0yZx2VWG8iwaNJMAO4n9u-QNKt_MGqbwYnwxNAeOdF-bdtSe6F7UQOOnWFi-xkjOCj4wUK6Q5rJhynmZOCqygY3cet3qo-bPAQciTNljqfkAXM42qWf9Im5uELADg4FAiE_n2hg8PbZ7d1VPm6Wj6-HD0"/>
+<img alt="User profile" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" data-alt="Portrait of a young woman with a neutral expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSVY5TcG-Svc8J0yoH4rDooeNB14BryGpn2c9AWMECbZKGuF_wZbCriyt0mOHXLQDH0rLJgdS9wvW-5aM3bbvA_JpNUgj1ALYJMek9PoxWByyOsrar7d0yZx2VWG8iwaNJMAO4n9u-QNKt_MGqbwYnwxNAeOdF-bdtSe6F7UQOOnWFi-xkjOCj4wUK6Q5rJhynmZOCqygY3cet3qo-bPAQciTNljqfkAXM42qWf9Im5uELADg4FAiE_n2hg8PbZ7d1VPm6Wj6-HD0">
 </div>
 </div>
 </div>
@@ -201,21 +201,21 @@
 <!-- Payment Method Selector -->
 <div class="grid grid-cols-3 gap-3">
 <label class="cursor-pointer">
-<input checked="" class="peer sr-only" name="method" type="radio"/>
+<input checked="" class="peer sr-only" name="method" type="radio">
 <div class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 peer-checked:bg-primary/20 peer-checked:border-primary transition-all">
 <span class="material-symbols-outlined text-3xl mb-1 text-slate-300 peer-checked:text-primary">currency_bitcoin</span>
 <span class="text-xs font-bold text-slate-300 peer-checked:text-white">Crypto</span>
 </div>
 </label>
 <label class="cursor-pointer">
-<input class="peer sr-only" name="method" type="radio"/>
+<input class="peer sr-only" name="method" type="radio">
 <div class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 peer-checked:bg-primary/20 peer-checked:border-primary transition-all">
 <span class="material-symbols-outlined text-3xl mb-1 text-slate-300 peer-checked:text-primary">account_balance</span>
 <span class="text-xs font-bold text-slate-300 peer-checked:text-white">Bank</span>
 </div>
 </label>
 <label class="cursor-pointer">
-<input class="peer sr-only" name="method" type="radio"/>
+<input class="peer sr-only" name="method" type="radio">
 <div class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 peer-checked:bg-primary/20 peer-checked:border-primary transition-all">
 <span class="material-symbols-outlined text-3xl mb-1 text-slate-300 peer-checked:text-primary">payments</span>
 <span class="text-xs font-bold text-slate-300 peer-checked:text-white">PayPal</span>
@@ -229,7 +229,7 @@
 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
 <span class="text-slate-400 font-bold">$</span>
 </div>
-<input class="w-full glass-input pl-10 pr-20 py-4 rounded-xl text-lg font-bold placeholder-slate-500 focus:outline-none transition-all" min="50" placeholder="0.00" type="number"/>
+<input class="w-full glass-input pl-10 pr-20 py-4 rounded-xl text-lg font-bold placeholder-slate-500 focus:outline-none transition-all" min="50" placeholder="0.00" type="number">
 <button class="absolute inset-y-2 right-2 px-4 bg-white/10 hover:bg-white/20 text-xs font-bold text-primary rounded-lg transition-colors border border-white/5" type="button">
                                         MAX
                                     </button>
@@ -246,7 +246,7 @@
 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
 <span class="material-symbols-outlined text-slate-500 text-[20px]">link</span>
 </div>
-<input class="w-full glass-input pl-11 pr-12 py-4 rounded-xl text-base font-medium placeholder-slate-500 focus:outline-none transition-all" placeholder="Enter your USDT (TRC20) or BTC address" type="text"/>
+<input class="w-full glass-input pl-11 pr-12 py-4 rounded-xl text-base font-medium placeholder-slate-500 focus:outline-none transition-all" placeholder="Enter your USDT (TRC20) or BTC address" type="text">
 <button class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-white transition-colors" type="button">
 <span class="material-symbols-outlined text-[20px]">content_paste</span>
 </button>
@@ -371,4 +371,6 @@
 </div>
 </main>
 </div>
+
+
 </body></html>
