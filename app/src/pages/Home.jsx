@@ -3,7 +3,7 @@ import ThemeToggle from '../components/ThemeToggle';
 
 export default function Home() {
     return (
-        <div className="landing-layout bg-landing-bg-light dark:bg-landing-bg-dark text-slate-800 dark:text-slate-100 font-display transition-colors duration-300 antialiased overflow-x-hidden relative selection:bg-primary selection:text-white min-h-screen">
+        <div className="landing-layout bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display transition-colors duration-300 antialiased overflow-x-hidden relative selection:bg-primary selection:text-white min-h-screen">
             <div className="fixed inset-0 overflow-hidden pointer-events-none">
                 <style>{`
                     @keyframes float {
@@ -30,7 +30,7 @@ export default function Home() {
             </div>
 
             <nav className="fixed w-full z-50 top-0 transition-all duration-300 px-6 py-4">
-                <div className="max-w-7xl mx-auto glass-panel bg-white/60 dark:bg-black/20 border border-black/5 dark:border-white/5 rounded-2xl shadow-sm dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.2)]">
+                <div className="max-w-7xl mx-auto glass-panel bg-glass-bg-light dark:bg-glass-bg border border-glass-border-light dark:border-glass-border rounded-2xl shadow-sm dark:shadow-glass">
                     <div className="flex items-center justify-between h-14 px-6">
                         <div className="flex items-center gap-2">
                             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-green-700 flex items-center justify-center text-white font-bold">
@@ -62,7 +62,7 @@ export default function Home() {
 
             <section className="relative pt-32 pb-20 px-4 min-h-screen flex items-center justify-center z-10" id="features">
                 <div className="max-w-4xl mx-auto text-center">
-                    <div className="glass-panel bg-white/60 dark:bg-black/20 border border-black/5 dark:border-white/5 rounded-3xl p-8 md:p-12 shadow-[0_8px_32px_0_rgba(0,0,0,0.2)] relative overflow-hidden group">
+                    <div className="glass-panel bg-glass-bg-light dark:bg-glass-bg border border-glass-border-light dark:border-glass-border rounded-3xl p-8 md:p-12 shadow-glass relative overflow-hidden group">
                         <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out pointer-events-none"></div>
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wider mb-6">
                             <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>

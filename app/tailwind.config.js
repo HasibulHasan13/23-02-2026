@@ -51,6 +51,10 @@ export default {
                 // Landing Space
                 "landing-bg-light": "#F0F4F1",
                 "landing-bg-dark": "#1A321A",
+                "glass-bg": "rgba(255, 255, 255, 0.05)",
+                "glass-border": "rgba(255, 255, 255, 0.1)",
+                "glass-bg-light": "rgba(255, 255, 255, 0.6)",
+                "glass-border-light": "rgba(0, 0, 0, 0.05)",
             },
             fontFamily: {
                 display: ["Inter", "sans-serif"],
