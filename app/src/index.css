@@ -134,4 +134,15 @@
     border-color: rgba(255, 255, 255, 0.1);
     color: #e5e7eb;
   }
+
+  /* Admin Layout Glass Card */
+  .admin-layout .glass-card {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(16, 185, 129, 0.1);
+  }
+  .dark .admin-layout .glass-card {
+    background: linear-gradient(145deg, rgba(6, 78, 59, 0.4) 0%, rgba(4, 120, 87, 0.1) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+  }
+
 }

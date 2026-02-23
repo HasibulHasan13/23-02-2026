@@ -185,7 +185,7 @@ export default function NetworkPulse() {
                         <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-sm">3 New</span>
                     </div>
                     <div className="space-y-4 flex-1">
-                        <div className="bg-white/80 dark:bg-white/5 border border-gray-200 dark:border-white/10 p-4 rounded-xl hover:shadow-md transition-all duration-300">
+                        <div className="glass-card p-4 rounded-xl hover:bg-white/60 dark:hover:bg-white/5 transition-all duration-300">
                             <div className="flex justify-between items-start mb-2">
                                 <div className="flex items-center gap-2">
                                     <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 border border-gray-300 dark:border-gray-600 flex items-center justify-center overflow-hidden">
@@ -204,11 +204,11 @@ export default function NetworkPulse() {
                             </div>
                             <div className="grid grid-cols-2 gap-2">
                                 <button className="bg-gray-100 dark:bg-white/10 hover:bg-red-50 dark:hover:bg-red-900/30 text-gray-700 dark:text-gray-200 hover:text-red-600 dark:hover:text-red-400 py-1.5 rounded-lg text-xs font-medium transition-colors">Reject</button>
-                                <button className="bg-admin-primary hover:bg-admin-primary-hover text-white py-1.5 rounded-lg text-xs font-medium shadow-sm shadow-admin-primary/20 transition-colors">Approve</button>
+                                <button className="bg-admin-primary hover:bg-admin-primary-hover text-white py-1.5 rounded-lg text-xs font-medium shadow-lg shadow-admin-primary/20 transition-colors">Approve</button>
                             </div>
                         </div>
 
-                        <div className="bg-white/80 dark:bg-white/5 border border-gray-200 dark:border-white/10 p-4 rounded-xl hover:shadow-md transition-all duration-300">
+                        <div className="glass-card p-4 rounded-xl hover:bg-white/60 dark:hover:bg-white/5 transition-all duration-300">
                             <div className="flex justify-between items-start mb-2">
                                 <div className="flex items-center gap-2">
                                     <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center text-white text-xs font-bold">SJ</div>
@@ -225,7 +225,7 @@ export default function NetworkPulse() {
                             </div>
                             <div className="grid grid-cols-2 gap-2">
                                 <button className="bg-gray-100 dark:bg-white/10 hover:bg-red-50 dark:hover:bg-red-900/30 text-gray-700 dark:text-gray-200 hover:text-red-600 dark:hover:text-red-400 py-1.5 rounded-lg text-xs font-medium transition-colors">Reject</button>
-                                <button className="bg-admin-primary hover:bg-admin-primary-hover text-white py-1.5 rounded-lg text-xs font-medium shadow-sm shadow-admin-primary/20 transition-colors">Approve</button>
+                                <button className="bg-admin-primary hover:bg-admin-primary-hover text-white py-1.5 rounded-lg text-xs font-medium shadow-lg shadow-admin-primary/20 transition-colors">Approve</button>
                             </div>
                         </div>
                     </div>

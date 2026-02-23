@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 
 export default function PayoutQueue() {
     return (
-        <div className="w-full max-w-[1440px] mx-auto flex flex-col gap-8 text-slate-800 dark:text-slate-100">
+        <div className="w-full max-w-[1440px] mx-auto flex flex-col gap-8 text-slate-800 dark:text-slate-100 font-['Manrope']">
             {/* Breadcrumbs & Title */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
                     <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-white/50 mb-1">
-                        <Link className="hover:text-admin-primary transition-colors" to="/admin/pulse">Dashboard</Link>
+                        <Link className="hover:text-[#4bbe4f] transition-colors" to="/admin/pulse">Dashboard</Link>
                         <span className="material-symbols-outlined text-[12px]">chevron_right</span>
                         <span className="text-gray-800 dark:text-white">Withdrawals</span>
                     </div>
@@ -22,7 +22,7 @@ export default function PayoutQueue() {
                     </div>
                     <div className="glass-panel px-5 py-3 rounded-2xl flex flex-col items-center min-w-[120px] bg-white/60 dark:bg-black/20 border-black/5 dark:border-white/5 shadow-sm dark:shadow-glass">
                         <span className="text-xs font-semibold text-gray-500 dark:text-white/50 uppercase tracking-wider">Processed</span>
-                        <span className="text-xl font-bold text-admin-primary">$45,200</span>
+                        <span className="text-xl font-bold text-[#4bbe4f]">$45,200</span>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@ export default function PayoutQueue() {
             {/* Filters & View Toggle */}
             <div className="flex flex-col sm:flex-row justify-between items-center gap-4 bg-gray-100 dark:bg-black/20 p-1.5 rounded-full border border-gray-200 dark:border-white/5 w-full sm:w-auto self-start">
                 <div className="flex bg-white dark:bg-black/40 rounded-full p-1 w-full sm:w-auto shadow-sm">
-                    <button className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-admin-primary text-white dark:text-[#0a1f0a] shadow-[0_0_15px_rgba(76,175,80,0.3)] text-sm font-bold transition-all">
+                    <button className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#4bbe4f] text-white dark:text-[#0a1f0a] shadow-[0_0_15px_rgba(76,175,80,0.3)] text-sm font-bold transition-all">
                         <span className="material-symbols-outlined text-[18px]">pending_actions</span>
                         Pending Requests
                     </button>
@@ -41,7 +41,7 @@ export default function PayoutQueue() {
                 </div>
                 <div className="flex items-center gap-3 px-4 w-full sm:w-auto justify-end sm:justify-start">
                     <span className="text-xs text-gray-500 dark:text-white/40 font-medium uppercase tracking-wider hidden sm:block">Filter by:</span>
-                    <select className="bg-transparent border-none text-sm text-admin-primary font-bold focus:ring-0 cursor-pointer p-0 pr-8 dark:bg-transparent">
+                    <select className="bg-transparent border-none text-sm text-[#4bbe4f] font-bold focus:ring-0 cursor-pointer p-0 pr-8 dark:bg-transparent">
                         <option>Newest First</option>
                         <option>Oldest First</option>
                         <option>Amount: High to Low</option>
@@ -55,7 +55,7 @@ export default function PayoutQueue() {
                 {/* Table Header */}
                 <div className="grid grid-cols-12 gap-4 px-6 py-5 border-b border-gray-200 dark:border-white/5 bg-gray-50 dark:bg-black/20 text-xs font-semibold text-gray-500 dark:text-white/40 uppercase tracking-wider items-center">
                     <div className="col-span-1 flex justify-center">
-                        <input className="rounded border-gray-300 dark:border-white/20 bg-white dark:bg-white/5 text-admin-primary focus:ring-admin-primary/50 focus:ring-offset-0 w-4 h-4 cursor-pointer" type="checkbox" />
+                        <input className="rounded border-gray-300 dark:border-white/20 bg-white dark:bg-white/5 text-[#4bbe4f] focus:ring-[#4bbe4f]/50 focus:ring-offset-0 w-4 h-4 cursor-pointer" type="checkbox" />
                     </div>
                     <div className="col-span-3">User Details</div>
                     <div className="col-span-2">Request Date</div>
@@ -69,7 +69,7 @@ export default function PayoutQueue() {
                     {/* Row 1 */}
                     <div className="group grid grid-cols-12 gap-4 px-6 py-4 border-b border-gray-100 dark:border-white/5 items-center hover:bg-gray-50 dark:hover:bg-white/5 transition-all duration-200">
                         <div className="col-span-1 flex justify-center">
-                            <input className="rounded border-gray-300 dark:border-white/20 bg-white dark:bg-white/5 text-admin-primary focus:ring-admin-primary/50 focus:ring-offset-0 w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity cursor-pointer" type="checkbox" />
+                            <input className="rounded border-gray-300 dark:border-white/20 bg-white dark:bg-white/5 text-[#4bbe4f] focus:ring-[#4bbe4f]/50 focus:ring-offset-0 w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity cursor-pointer" type="checkbox" />
                         </div>
                         <div className="col-span-3 flex items-center gap-3">
                             <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden border border-gray-200 dark:border-white/10">
@@ -86,13 +86,13 @@ export default function PayoutQueue() {
                             <div className="flex items-center gap-2 text-gray-700 dark:text-white/80 text-sm">
                                 <span className="material-symbols-outlined text-[#00457C] text-[18px]">account_balance_wallet</span>
                                 <span className="truncate">PayPal: jane@...</span>
-                                <button className="text-admin-primary hover:text-admin-primary-hover dark:hover:text-white transition-colors ml-auto">
+                                <button className="text-[#4bbe4f] hover:hover:text-[#3da140] dark:hover:text-white transition-colors ml-auto">
                                     <span className="material-symbols-outlined text-[16px]">content_copy</span>
                                 </button>
                             </div>
                         </div>
                         <div className="col-span-2 flex justify-center gap-2 opacity-90 group-hover:opacity-100 transition-opacity">
-                            <button className="bg-admin-primary/90 hover:bg-admin-primary text-white dark:text-[#0a1f0a] rounded-full p-2 shadow-[0_0_15px_rgba(76,175,80,0.3)] transition-all transform hover:scale-110" title="Approve">
+                            <button className="bg-[#4bbe4f]/90 hover:bg-[#4bbe4f] text-white dark:text-[#0a1f0a] rounded-full p-2 shadow-[0_0_15px_rgba(76,175,80,0.3)] transition-all transform hover:scale-110" title="Approve">
                                 <span className="material-symbols-outlined text-[20px] font-bold">check</span>
                             </button>
                             <button className="bg-red-500/10 hover:bg-red-500 text-red-500 hover:text-white border border-red-500/30 rounded-full p-2 transition-all transform hover:scale-110" title="Reject">
@@ -104,7 +104,7 @@ export default function PayoutQueue() {
                     {/* Row 2 */}
                     <div className="group grid grid-cols-12 gap-4 px-6 py-4 border-b border-gray-100 dark:border-white/5 items-center hover:bg-gray-50 dark:hover:bg-white/5 transition-all duration-200">
                         <div className="col-span-1 flex justify-center">
-                            <input className="rounded border-gray-300 dark:border-white/20 bg-white dark:bg-white/5 text-admin-primary focus:ring-admin-primary/50 focus:ring-offset-0 w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity cursor-pointer" type="checkbox" />
+                            <input className="rounded border-gray-300 dark:border-white/20 bg-white dark:bg-white/5 text-[#4bbe4f] focus:ring-[#4bbe4f]/50 focus:ring-offset-0 w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity cursor-pointer" type="checkbox" />
                         </div>
                         <div className="col-span-3 flex items-center gap-3">
                             <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden border border-gray-200 dark:border-white/10">
@@ -121,7 +121,7 @@ export default function PayoutQueue() {
                             <div className="flex items-center gap-2 text-gray-700 dark:text-white/80 text-sm">
                                 <span className="material-symbols-outlined text-gray-500 dark:text-white text-[18px]">account_balance</span>
                                 <span className="truncate">Wire: ****4291</span>
-                                <button className="text-admin-primary hover:text-admin-primary-hover dark:hover:text-white transition-colors ml-auto">
+                                <button className="text-[#4bbe4f] hover:hover:text-[#3da140] dark:hover:text-white transition-colors ml-auto">
                                     <span className="material-symbols-outlined text-[16px]">content_copy</span>
                                 </button>
                             </div>
@@ -142,7 +142,7 @@ export default function PayoutQueue() {
                         <button className="w-8 h-8 flex items-center justify-center rounded-lg bg-gray-200 dark:bg-white/5 text-gray-400 dark:text-white/40 cursor-not-allowed">
                             <span className="material-symbols-outlined text-[16px]">chevron_left</span>
                         </button>
-                        <button className="w-8 h-8 flex items-center justify-center rounded-lg bg-admin-primary text-white dark:text-[#0a1f0a] font-bold">1</button>
+                        <button className="w-8 h-8 flex items-center justify-center rounded-lg bg-[#4bbe4f] text-white dark:text-[#0a1f0a] font-bold">1</button>
                         <button className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-200 dark:hover:bg-white/5 text-gray-600 dark:text-white/60 transition-colors">2</button>
                         <button className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-200 dark:hover:bg-white/5 text-gray-600 dark:text-white/60 transition-colors">3</button>
                         <span className="text-gray-400 dark:text-white/40">...</span>
