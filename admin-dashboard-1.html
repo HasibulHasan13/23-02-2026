@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ARS Surveys User Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#10B981", // Emerald 500 for primary actions
+                        "primary-dark": "#047857",
+                        "forest-darkest": "#022c22", // Deepest green for dark bg
+                        "forest-dark": "#064e3b", // Lighter forest for cards
+                        "glass-border": "rgba(255, 255, 255, 0.1)",
+                        "glass-bg": "rgba(6, 78, 59, 0.4)",
+                        "background-light": "#F0FDF4", // Very light green for light mode
+                        "background-dark": "#022c22", // Deep forest for dark mode
+                        "accent-lime": "#84cc16",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.75rem",
+                    },
+                    backdropBlur: {
+                        xs: '2px',
+                    }
+                },
+            },
+        };
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .dark .glass-panel {
+            background: rgba(6, 78, 59, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+        .glass-input {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(4px);
+        }
+        .dark .glass-input {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        .dark .glass-input:focus {
+            border-color: #10B981;
+            background: rgba(0, 0, 0, 0.4);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+        }::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.1); 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(16, 185, 129, 0.5); 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(16, 185, 129, 0.8); 
+        }
+        .modal-glass {
+            background: rgba(6, 40, 30, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-body text-gray-800 dark:text-gray-100 transition-colors duration-300 min-h-screen flex flex-col relative overflow-hidden">
+<div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+<div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-primary/20 rounded-full blur-[100px] mix-blend-screen animate-pulse"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-accent-lime/10 rounded-full blur-[120px] mix-blend-screen"></div>
+<div class="absolute top-[20%] right-[10%] w-64 h-64 bg-forest-dark/40 rounded-full blur-[80px]"></div>
+</div>
+<div class="fixed inset-0 z-[100] flex items-center justify-center p-4">
+<div class="absolute inset-0 bg-forest-darkest/60 backdrop-blur-md"></div>
+<div class="modal-glass w-full max-w-md rounded-2xl p-8 relative z-10 animate-[fadeIn_0.3s_ease-out]">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-primary/20 rounded-full blur-[50px] pointer-events-none"></div>
+<div class="relative flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-forest-darkest border border-primary/30 flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+<span class="material-symbols-outlined text-3xl text-primary">account_balance_wallet</span>
+</div>
+<h2 class="text-2xl font-bold text-white mb-2 tracking-tight">Confirm Withdrawal</h2>
+<p class="text-gray-400 text-sm mb-8">Please review your transaction details below.</p>
+<div class="w-full bg-white/5 border border-white/10 rounded-xl p-5 mb-6">
+<div class="flex justify-between items-center mb-3">
+<span class="text-gray-400 text-sm">Amount</span>
+<span class="text-white font-medium">$150.00</span>
+</div>
+<div class="flex justify-between items-center mb-3">
+<span class="text-gray-400 text-sm">Processing Fee</span>
+<span class="text-white font-medium text-red-400">-$2.00</span>
+</div>
+<div class="h-px bg-white/10 w-full my-3"></div>
+<div class="flex justify-between items-center">
+<span class="text-gray-300 text-sm font-medium">Total to Receive</span>
+<span class="text-2xl font-bold text-white">$148.00</span>
+</div>
+</div>
+<div class="w-full flex items-center gap-3 p-3 rounded-lg bg-black/20 border border-white/5 mb-6">
+<div class="w-10 h-10 rounded-full bg-blue-600/20 flex items-center justify-center text-blue-400">
+<span class="material-symbols-outlined text-xl">payments</span>
+</div>
+<div class="text-left flex-1">
+<p class="text-xs text-gray-400 uppercase tracking-wider">Destination</p>
+<p class="text-sm text-white font-medium">Payoneer: john****@email.com</p>
+</div>
+</div>
+<div class="flex items-center gap-2 text-accent-lime mb-8 bg-accent-lime/10 px-3 py-1.5 rounded-full border border-accent-lime/20">
+<span class="material-symbols-outlined text-sm">lock</span>
+<span class="text-xs font-semibold tracking-wide uppercase">Secure Transaction</span>
+</div>
+<div class="w-full space-y-4">
+<button class="w-full py-3.5 bg-gradient-to-r from-primary to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white rounded-xl font-bold shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:shadow-[0_0_30px_rgba(16,185,129,0.6)] transition-all transform hover:-translate-y-0.5 active:scale-[0.98]">
+                    Confirm &amp; Process
+                </button>
+<button class="text-gray-400 hover:text-white text-sm font-medium transition-colors">
+                    Cancel
+                </button>
+</div>
+</div>
+</div>
+</div>
+<nav class="w-full glass-panel sticky top-0 z-40 px-6 py-4 flex justify-between items-center border-b border-gray-200 dark:border-white/10 blur-[2px]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent-lime flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-white">analytics</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-forest-darkest dark:text-white">ARS <span class="text-primary font-light">Surveys</span></h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-white/10 transition-colors relative">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-300">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-gray-300 dark:border-white/10">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-semibold dark:text-white">John Doe</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">Pro Surveyor</p>
+</div>
+<img alt="User Avatar" class="w-10 h-10 rounded-full border-2 border-primary object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLtZV90lrXTbIm64MpzCUWlvfGOp0dpeYHUi4q-MTEmtr24JkaVL8J1tJoAjB9dFJsRmoKUk8DxOXAwG6HCkRQMMq0xHdGiOZsVKEggI2LFvWtMXewI4-IBFRzzlnWRvioaplvCwzCn9gNclBr0UsKw-bBrm_CsNo8KOMeTGYPthqp4mEZvYxZ-Pn6JwDHnfBPVWzVQGeznhp0u-GbW5ZbBo2A_y8wosed_oRvrx4E2FISRkhj3utPufNOc6w0V9aQzTupaKvTHRI"/>
+</div>
+</div>
+</nav>
+<main class="flex-1 p-4 md:p-8 overflow-y-auto flex justify-center items-start blur-[4px] pointer-events-none select-none">
+<div class="w-full max-w-4xl">
+<div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-6">
+<a class="hover:text-primary transition-colors" href="#">Dashboard</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-gray-800 dark:text-white font-medium">Profile Settings</span>
+</div>
+<div class="glass-panel rounded-3xl overflow-hidden relative border border-gray-200 dark:border-white/10 shadow-2xl shadow-black/20">
+<div class="h-32 bg-gradient-to-r from-forest-dark to-primary/30 relative">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+</div>
+<div class="px-8 pb-8">
+<div class="relative flex flex-col sm:flex-row items-end sm:items-center -mt-12 mb-8 gap-6">
+<div class="relative group">
+<div class="w-32 h-32 rounded-full p-1 bg-white dark:bg-forest-darkest shadow-xl">
+<img alt="Profile" class="w-full h-full rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLtZV90lrXTbIm64MpzCUWlvfGOp0dpeYHUi4q-MTEmtr24JkaVL8J1tJoAjB9dFJsRmoKUk8DxOXAwG6HCkRQMMq0xHdGiOZsVKEggI2LFvWtMXewI4-IBFRzzlnWRvioaplvCwzCn9gNclBr0UsKw-bBrm_CsNo8KOMeTGYPthqp4mEZvYxZ-Pn6JwDHnfBPVWzVQGeznhp0u-GbW5ZbBo2A_y8wosed_oRvrx4E2FISRkhj3utPufNOc6w0V9aQzTupaKvTHRI"/>
+</div>
+<button class="absolute inset-0 flex items-center justify-center bg-black/50 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm m-1">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<div class="absolute bottom-2 right-2 bg-white dark:bg-forest-darkest rounded-full p-1.5 shadow-md">
+<div class="w-4 h-4 bg-green-500 rounded-full border-2 border-white dark:border-forest-darkest"></div>
+</div>
+</div>
+<div class="flex-1 text-center sm:text-left pt-2 sm:pt-12">
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white flex items-center justify-center sm:justify-start gap-2">
+                                Johnathan Doe
+                                <span class="material-symbols-outlined text-primary text-xl" title="Verified User">verified</span>
+</h2>
+<p class="text-gray-500 dark:text-gray-400 text-sm">Member since 2021 • Pro Plan</p>
+</div>
+<div class="flex gap-3 mt-4 sm:mt-0 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none py-2 px-4 rounded-xl border border-gray-300 dark:border-white/20 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5 transition-colors text-sm font-medium">
+                               View Public Profile
+                           </button>
+</div>
+</div>
+<form class="space-y-8" onsubmit="event.preventDefault();">
+<div>
+<h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
+<span class="p-1.5 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-xl">person</span>
+</span>
+                                Personal Information
+                            </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-1.5">
+<label class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide ml-1">Full Name</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+<span class="material-symbols-outlined text-lg">badge</span>
+</span>
+<input class="glass-input w-full pl-10 pr-4 py-2.5 rounded-xl text-sm transition-all focus:ring-0 placeholder-gray-400 dark:placeholder-gray-500" placeholder="Enter your full name" type="text" value="Johnathan Doe"/>
+</div>
+</div>
+<div class="space-y-1.5">
+<label class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide ml-1">Phone Number</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+<span class="material-symbols-outlined text-lg">call</span>
+</span>
+<input class="glass-input w-full pl-10 pr-4 py-2.5 rounded-xl text-sm transition-all focus:ring-0 placeholder-gray-400 dark:placeholder-gray-500" placeholder="+1 (000) 000-0000" type="tel" value="+1 (555) 000-1234"/>
+</div>
+</div>
+<div class="space-y-1.5 md:col-span-2">
+<label class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide ml-1">Home Address</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+<span class="material-symbols-outlined text-lg">home_pin</span>
+</span>
+<input class="glass-input w-full pl-10 pr-4 py-2.5 rounded-xl text-sm transition-all focus:ring-0 placeholder-gray-400 dark:placeholder-gray-500" placeholder="Street address, City, State, Zip" type="text" value="1234 Elm Street, Springfield, IL 62704"/>
+</div>
+</div>
+</div>
+</div>
+<hr class="border-gray-200 dark:border-white/10"/>
+<div>
+<h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
+<span class="p-1.5 rounded-lg bg-accent-lime/10 text-accent-lime">
+<span class="material-symbols-outlined text-xl">verified_user</span>
+</span>
+                                Identity Verification
+                            </h3>
+<div class="relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent-lime rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+<div class="relative w-full border-2 border-dashed border-accent-lime/50 dark:border-accent-lime/30 bg-gray-50/50 dark:bg-black/20 rounded-2xl p-8 text-center hover:bg-accent-lime/5 transition-colors cursor-pointer group-hover:border-accent-lime">
+<div class="flex flex-col items-center justify-center gap-3">
+<div class="w-16 h-16 rounded-full bg-accent-lime/10 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-3xl text-accent-lime">cloud_upload</span>
+</div>
+<h4 class="text-base font-semibold text-gray-900 dark:text-white">Upload your NID (Front &amp; Back)</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400 max-w-sm mx-auto">
+                                            Drag and drop your files here, or <span class="text-accent-lime hover:underline font-medium">browse files</span>. Supported formats: JPEG, PNG, PDF.
+                                        </p>
+</div>
+<input accept="image/*,.pdf" class="hidden" multiple="" type="file"/>
+</div>
+</div>
+</div>
+<hr class="border-gray-200 dark:border-white/10"/>
+<div>
+<h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
+<span class="p-1.5 rounded-lg bg-blue-500/10 text-blue-500">
+<span class="material-symbols-outlined text-xl">translate</span>
+</span>
+                                Skills &amp; Language
+                            </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-1.5">
+<label class="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide ml-1">English Proficiency</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+<span class="material-symbols-outlined text-lg">language</span>
+</span>
+<select class="glass-input w-full pl-10 pr-10 py-2.5 rounded-xl text-sm appearance-none cursor-pointer focus:ring-0 text-gray-800 dark:text-gray-100 dark:bg-[#064e3b]">
+<option disabled="" value="">Select Level</option>
+<option value="beginner">Beginner</option>
+<option value="intermediate">Intermediate</option>
+<option selected="" value="advanced">Advanced</option>
+<option value="native">Native</option>
+</select>
+<span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-gray-400">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-6 flex flex-col sm:flex-row items-center justify-end gap-4">
+<button class="w-full sm:w-auto px-6 py-2.5 rounded-xl text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5 hover:text-gray-900 dark:hover:text-white transition-colors" type="button">
+                                Cancel
+                            </button>
+<button class="w-full sm:w-auto bg-gradient-to-r from-primary to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white px-8 py-2.5 rounded-xl text-sm font-semibold shadow-lg shadow-emerald-500/30 transition-all transform hover:scale-[1.02] active:scale-[0.98]" type="submit">
+                                Save Profile
+                            </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+<div class="fixed bottom-6 right-6 z-50">
+<button class="w-12 h-12 rounded-full bg-forest-darkest dark:bg-white text-white dark:text-forest-darkest shadow-xl flex items-center justify-center hover:scale-110 transition-transform" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-symbols-outlined dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined hidden dark:block">light_mode</span>
+</button>
+</div>
+<script>
+        // Check for dark mode preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+</body></html>

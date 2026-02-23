@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VPS Information Details - ARS Surveys</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4bbe4f",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#141e15",
+                        "glass-border": "rgba(255, 255, 255, 0.08)",
+                        "glass-bg": "rgba(31, 46, 31, 0.6)",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    backgroundImage: {
+                        'forest-gradient': 'radial-gradient(circle at 50% 0%, #1f2e1f 0%, #141e15 70%)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Glassmorphism Utilities */
+        .glass-panel {
+            background: rgba(31, 46, 31, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(75, 190, 79, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(75, 190, 79, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .pulse-ring {
+            box-shadow: 0 0 0 0 rgba(75, 190, 79, 0.7);
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(75, 190, 79, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(75, 190, 79, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(75, 190, 79, 0);
+            }
+        }
+        
+        /* Custom Scrollbar for dark theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #141e15; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2b402c; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4bbe4f; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen flex overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-80 hidden lg:flex flex-col border-r border-white/5 bg-[#151e15] h-screen fixed left-0 top-0 z-50">
+<div class="p-6 flex flex-col h-full justify-between">
+<div class="flex flex-col gap-8">
+<!-- Logo -->
+<div class="flex items-center gap-3 px-2">
+<div class="bg-gradient-to-br from-primary to-[#2b402c] rounded-full w-10 h-10 flex items-center justify-center shadow-[0_0_15px_rgba(75,190,79,0.3)]">
+<span class="material-symbols-outlined text-white text-xl">spa</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-white text-lg font-bold leading-tight tracking-tight">ARS Surveys</h1>
+<p class="text-primary/70 text-xs font-medium tracking-wider uppercase">Admin Console</p>
+</div>
+</div>
+<!-- Nav Menu -->
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-4 px-4 py-3 rounded-full text-slate-400 hover:text-white hover:bg-white/5 transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px]">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full bg-primary/10 text-primary border border-primary/20 shadow-[0_0_10px_rgba(75,190,79,0.1)]" href="#">
+<span class="material-symbols-outlined text-[24px] filled">dns</span>
+<span class="text-sm font-bold">VPS Instances</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full text-slate-400 hover:text-white hover:bg-white/5 transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px]">payments</span>
+<span class="text-sm font-medium">Billing</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full text-slate-400 hover:text-white hover:bg-white/5 transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px]">support_agent</span>
+<span class="text-sm font-medium">Support</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full text-slate-400 hover:text-white hover:bg-white/5 transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+</div>
+<!-- New Instance Button & User Profile -->
+<div class="flex flex-col gap-6">
+<button class="w-full h-12 rounded-full bg-primary hover:bg-green-500 text-[#151e15] text-sm font-bold flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(75,190,79,0.3)] hover:shadow-[0_0_30px_rgba(75,190,79,0.5)]">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+                    New Instance
+                </button>
+<div class="flex items-center gap-3 px-2 py-3 border-t border-white/5">
+<div class="w-10 h-10 rounded-full bg-slate-700 bg-cover bg-center border-2 border-primary/30" data-alt="User profile picture of a man" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCCcyaAhRlES-_BtTRCAZgwADe5UMe3Jdq5VHcOQ48ysbFuJb-fpq3YTY3_GYLwLRAQdwQbouBmF7_i4djrZ8ybzsBdntgGl8oJmG-AbWu_WkmellgjZaK5qKVA77zsPAJN_ERNp2msYnMfw0TnwTh6OWdk21XoSP_uvXtEHgO9vXowH-O6V6as1Bu8ePN0VSqBgWrn9j9F-il8D1e0DnXmQm6kshEbapnWub5A4erffUrkm476ZV5gS0UoBLvm2Wql4tylrKwURM0');"></div>
+<div class="flex flex-col">
+<p class="text-sm font-bold text-white">Alex Morgan</p>
+<p class="text-xs text-slate-400">Super Admin</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-80 h-screen overflow-y-auto bg-forest-gradient relative">
+<!-- Background Ambient Glow -->
+<div class="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-primary/5 to-transparent pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-6 py-8 md:px-10 md:py-10 flex flex-col gap-8 pb-20">
+<!-- Breadcrumb & Header -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-4 relative z-10">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 text-sm font-medium text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">VPS Management</a>
+<span class="text-slate-600">/</span>
+<span class="text-white">Server-01 Details</span>
+</div>
+<h1 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Server-01 Details</h1>
+<p class="text-slate-400 max-w-2xl">Real-time monitoring and configuration for your primary survey database instance.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="h-10 px-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white text-sm font-medium flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+                        Refresh Data
+                    </button>
+<button class="h-10 px-4 rounded-full border border-red-500/30 bg-red-500/10 hover:bg-red-500/20 text-red-400 text-sm font-medium flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-[18px]">power_settings_new</span>
+                        Restart
+                    </button>
+</div>
+</header>
+<!-- Status Hero Card -->
+<section class="glass-panel rounded-lg p-1 relative overflow-hidden group">
+<!-- Status Glow Background -->
+<div class="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-primary/10 to-transparent opacity-50 group-hover:opacity-70 transition-opacity"></div>
+<div class="bg-[#1a261a]/80 backdrop-blur-md rounded-[1.8rem] p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+<div class="flex items-center gap-6 w-full md:w-auto">
+<div class="relative flex items-center justify-center w-20 h-20 rounded-full bg-[#151e15] shadow-inner border border-white/5">
+<div class="w-4 h-4 rounded-full bg-primary pulse-ring relative z-10"></div>
+<div class="absolute inset-0 rounded-full bg-primary/5 blur-xl"></div>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-2xl font-bold text-white">System Operational</h2>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-primary/20 border border-primary/30 text-primary text-xs font-bold uppercase tracking-wider">Online</span>
+<span class="text-slate-400 text-sm">Last checked: 2 mins ago</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row items-center gap-8 w-full md:w-auto">
+<div class="flex flex-col items-center md:items-start">
+<span class="text-slate-500 text-xs uppercase font-bold tracking-wider mb-1">Current Load</span>
+<div class="flex items-baseline gap-1">
+<span class="text-2xl font-bold text-white">24%</span>
+<span class="text-xs text-primary font-medium">Low</span>
+</div>
+</div>
+<div class="h-10 w-px bg-white/10 hidden md:block"></div>
+<div class="flex flex-col items-center md:items-start">
+<span class="text-slate-500 text-xs uppercase font-bold tracking-wider mb-1">Memory Usage</span>
+<div class="flex items-baseline gap-1">
+<span class="text-2xl font-bold text-white">4.2</span>
+<span class="text-sm text-slate-400">/ 16 GB</span>
+</div>
+</div>
+<div class="h-10 w-px bg-white/10 hidden md:block"></div>
+<div class="flex flex-col items-center md:items-start">
+<span class="text-slate-500 text-xs uppercase font-bold tracking-wider mb-1">Disk Space</span>
+<div class="flex items-baseline gap-1">
+<span class="text-2xl font-bold text-white">128</span>
+<span class="text-sm text-slate-400">/ 500 GB</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Info Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- IP Address Card -->
+<div class="glass-card rounded-lg p-5 flex flex-col gap-3 group">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400">
+<span class="material-symbols-outlined">hub</span>
+</div>
+<button class="text-slate-500 hover:text-white transition-colors" title="Copy IP">
+<span class="material-symbols-outlined text-[20px]">content_copy</span>
+</button>
+</div>
+<div>
+<p class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">Public IP Address</p>
+<p class="text-white text-lg font-mono tracking-tight group-hover:text-primary transition-colors">192.168.1.55</p>
+</div>
+</div>
+<!-- OS Card -->
+<div class="glass-card rounded-lg p-5 flex flex-col gap-3 group">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400">
+<span class="material-symbols-outlined">grid_view</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-green-500 mt-2"></span>
+</div>
+<div>
+<p class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">Operating System</p>
+<p class="text-white text-lg font-semibold tracking-tight">Windows Server 22</p>
+</div>
+</div>
+<!-- Region Card -->
+<div class="glass-card rounded-lg p-5 flex flex-col gap-3 group">
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-400">
+<span class="material-symbols-outlined">public</span>
+</div>
+<span class="text-xs font-bold text-slate-500 bg-white/5 px-2 py-1 rounded-full border border-white/5">US-East-1</span>
+</div>
+<div>
+<p class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">Region Location</p>
+<p class="text-white text-lg font-semibold tracking-tight">Virginia, USA</p>
+</div>
+</div>
+<!-- Credentials Card -->
+<div class="glass-card rounded-lg p-5 flex flex-col gap-3 group relative overflow-hidden">
+<div class="flex items-start justify-between relative z-10">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+</div>
+<button class="text-slate-500 hover:text-white transition-colors" title="Toggle Visibility">
+<span class="material-symbols-outlined text-[20px]">visibility_off</span>
+</button>
+</div>
+<div class="relative z-10">
+<p class="text-slate-400 text-xs font-medium uppercase tracking-wider mb-1">Root User</p>
+<div class="flex items-center justify-between">
+<p class="text-white text-sm font-mono">admin_ars</p>
+<p class="text-slate-500 text-sm font-mono tracking-[0.2em] bg-black/20 px-2 rounded">•••••••</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Performance Graphs -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Uptime Graph -->
+<div class="glass-panel rounded-lg p-6 flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="text-white font-bold text-lg">Network Uptime</h3>
+<p class="text-slate-400 text-sm">Last 30 Days Performance</p>
+</div>
+<div class="text-right">
+<p class="text-primary text-2xl font-bold">99.98%</p>
+<p class="text-slate-500 text-xs font-medium uppercase">Availability</p>
+</div>
+</div>
+<!-- CSS-only Chart Representation -->
+<div class="relative h-48 w-full flex items-end justify-between gap-1 pt-8 px-2 border-b border-white/5">
+<!-- Y-axis lines -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
+<div class="w-full h-px bg-white/5"></div>
+<div class="w-full h-px bg-white/5"></div>
+<div class="w-full h-px bg-white/5"></div>
+<div class="w-full h-px bg-white/5"></div>
+</div>
+<!-- Bars -->
+<div class="w-full bg-primary/40 rounded-t-sm h-[80%] hover:bg-primary/60 transition-colors relative group" title="Day 1"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[85%] hover:bg-primary/60 transition-colors relative group" title="Day 2"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[90%] hover:bg-primary/60 transition-colors relative group" title="Day 3"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[82%] hover:bg-primary/60 transition-colors relative group" title="Day 4"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[95%] hover:bg-primary/60 transition-colors relative group" title="Day 5"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[98%] hover:bg-primary/60 transition-colors relative group" title="Day 6"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[92%] hover:bg-primary/60 transition-colors relative group" title="Day 7"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[99%] hover:bg-primary/60 transition-colors relative group" title="Day 8"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[100%] hover:bg-primary/60 transition-colors relative group" title="Day 9"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[94%] hover:bg-primary/60 transition-colors relative group" title="Day 10"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[96%] hover:bg-primary/60 transition-colors relative group" title="Day 11"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[92%] hover:bg-primary/60 transition-colors relative group" title="Day 12"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[88%] hover:bg-primary/60 transition-colors relative group" title="Day 13"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[95%] hover:bg-primary/60 transition-colors relative group" title="Day 14"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[99%] hover:bg-primary/60 transition-colors relative group" title="Day 15"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[99%] hover:bg-primary/60 transition-colors relative group" title="Day 16"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[95%] hover:bg-primary/60 transition-colors relative group" title="Day 17"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[92%] hover:bg-primary/60 transition-colors relative group" title="Day 18"></div>
+<div class="w-full bg-yellow-500/80 rounded-t-sm h-[60%] hover:bg-yellow-500 transition-colors relative group" title="Day 19 - Maintenance"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[88%] hover:bg-primary/60 transition-colors relative group" title="Day 20"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[95%] hover:bg-primary/60 transition-colors relative group" title="Day 21"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[98%] hover:bg-primary/60 transition-colors relative group" title="Day 22"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[99%] hover:bg-primary/60 transition-colors relative group" title="Day 23"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[97%] hover:bg-primary/60 transition-colors relative group" title="Day 24"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[100%] hover:bg-primary/60 transition-colors relative group" title="Day 25"></div>
+</div>
+</div>
+<!-- Latency Graph -->
+<div class="glass-panel rounded-lg p-6 flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="text-white font-bold text-lg">Response Latency</h3>
+<p class="text-slate-400 text-sm">Real-time Ping (ms)</p>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<p class="text-white text-lg font-mono font-bold">24ms</p>
+</div>
+</div>
+<!-- Area Chart Approximation -->
+<div class="relative h-48 w-full rounded-md bg-[#151e15]/50 overflow-hidden border border-white/5">
+<!-- Grid Lines -->
+<div class="absolute inset-0 grid grid-cols-6 grid-rows-4">
+<div class="border-r border-b border-white/5"></div><div class="border-r border-b border-white/5"></div><div class="border-r border-b border-white/5"></div><div class="border-r border-b border-white/5"></div><div class="border-r border-b border-white/5"></div><div class="border-b border-white/5"></div>
+<div class="border-r border-b border-white/5"></div><div class="border-r border-b border-white/5"></div><div class="border-r border-b border-white/5"></div><div class="border-r border-b border-white/5"></div><div class="border-r border-b border-white/5"></div><div class="border-b border-white/5"></div>
+<div class="border-r border-b border-white/5"></div><div class="border-r border-b border-white/5"></div><div class="border-r border-b border-white/5"></div><div class="border-r border-b border-white/5"></div><div class="border-r border-b border-white/5"></div><div class="border-b border-white/5"></div>
+<div class="border-r border-white/5"></div><div class="border-r border-white/5"></div><div class="border-r border-white/5"></div><div class="border-r border-white/5"></div><div class="border-r border-white/5"></div><div></div>
+</div>
+<!-- Line Path (Simulated with clip-path/gradient) -->
+<div class="absolute bottom-0 left-0 right-0 h-[70%] bg-gradient-to-t from-primary/30 via-primary/10 to-transparent" style="clip-path: polygon(0% 100%, 0% 60%, 10% 40%, 20% 65%, 30% 30%, 40% 50%, 50% 45%, 60% 70%, 70% 20%, 80% 40%, 90% 35%, 100% 50%, 100% 100%);"></div>
+<!-- The Line Itself -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" preserveaspectratio="none">
+<path d="M0,75 L50,110 L100,50 L150,100 L200,60 L250,90 L300,80 L350,120 L400,40 L450,70 L500,60 L600,90" fill="none" stroke="#4bbe4f" stroke-width="2" style="filter: drop-shadow(0 0 4px rgba(75,190,79,0.5)); transform: scaleY(0.6) translateY(50px);" vector-effect="non-scaling-stroke"></path>
+</svg>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Earning Withdrawal - ARS Surveys</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4bbe4f",
+                        "primary-dark": "#3da140",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#0f1910", // Deep forest green/black mix
+                        "glass-border": "rgba(255, 255, 255, 0.08)",
+                        "glass-surface": "rgba(20, 30, 20, 0.6)",
+                        "glass-highlight": "rgba(255, 255, 255, 0.03)",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "body": ["Manrope", "sans-serif"]
+                    },
+                    backgroundImage: {
+                        'forest-gradient': 'radial-gradient(circle at 50% 0%, #1a3c20 0%, #0f1910 60%, #050a05 100%)',
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.3)',
+                        'glow': '0 0 20px rgba(75, 190, 79, 0.15)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f1910; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2b402c; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4bbe4f; 
+        }
+
+        /* Glassmorphism Utilities */
+        .glass-panel {
+            background: var(--glass-surface);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+        
+        .glass-input {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(75, 190, 79, 0.2);
+            color: white;
+        }
+        
+        .glass-input:focus {
+            background: rgba(0, 0, 0, 0.4);
+            border-color: #4bbe4f;
+            box-shadow: 0 0 0 2px rgba(75, 190, 79, 0.1);
+        }
+
+        /* Animated gradient orb for background depth */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col relative overflow-x-hidden selection:bg-primary selection:text-white">
+<!-- Background Orbs for Depth -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+<div class="orb bg-primary w-96 h-96 top-[-100px] left-[-100px] opacity-20"></div>
+<div class="orb bg-emerald-900 w-[500px] h-[500px] bottom-[-100px] right-[-100px] opacity-30"></div>
+</div>
+<!-- Main Layout Container -->
+<div class="relative z-10 flex flex-col min-h-screen bg-forest-gradient">
+<!-- Navigation Header -->
+<header class="sticky top-0 z-50 w-full glass-panel border-b border-glass-border">
+<div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<!-- Logo -->
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-emerald-800 flex items-center justify-center text-white shadow-glow">
+<span class="material-symbols-outlined text-[24px]">dataset</span>
+</div>
+<h2 class="text-white text-xl font-bold tracking-tight">ARS Surveys</h2>
+</div>
+<!-- Nav Links -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-300 hover:text-white text-sm font-semibold transition-colors" href="#">Dashboard</a>
+<a class="text-white text-sm font-bold bg-white/5 px-4 py-2 rounded-full border border-white/10" href="#">Wallet</a>
+<a class="text-slate-300 hover:text-white text-sm font-semibold transition-colors" href="#">Surveys</a>
+<a class="text-slate-300 hover:text-white text-sm font-semibold transition-colors" href="#">Settings</a>
+</nav>
+<!-- Right Actions -->
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors text-slate-300 hover:text-white border border-white/5">
+<span class="material-symbols-outlined text-[20px]">light_mode</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors text-slate-300 hover:text-white border border-white/5 relative">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+</button>
+<div class="w-10 h-10 rounded-full bg-gradient-to-tr from-slate-700 to-slate-600 border border-white/10 overflow-hidden cursor-pointer">
+<img alt="User profile" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" data-alt="Portrait of a young woman with a neutral expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSVY5TcG-Svc8J0yoH4rDooeNB14BryGpn2c9AWMECbZKGuF_wZbCriyt0mOHXLQDH0rLJgdS9wvW-5aM3bbvA_JpNUgj1ALYJMek9PoxWByyOsrar7d0yZx2VWG8iwaNJMAO4n9u-QNKt_MGqbwYnwxNAeOdF-bdtSe6F7UQOOnWFi-xkjOCj4wUK6Q5rJhynmZOCqygY3cet3qo-bPAQciTNljqfkAXM42qWf9Im5uELADg4FAiE_n2hg8PbZ7d1VPm6Wj6-HD0"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-[1280px] mx-auto p-6 md:p-8 lg:p-10 space-y-8">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-2">Earnings &amp; Withdrawals</h1>
+<p class="text-slate-400 text-lg">Manage your survey rewards and request secure payouts.</p>
+</div>
+<div class="flex items-center gap-2 text-sm text-primary font-medium bg-primary/10 px-4 py-2 rounded-full border border-primary/20 backdrop-blur-sm">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+                    Secure SSL Connection
+                </div>
+</div>
+<!-- Top Grid: Balance & Form -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Left Column: Balance Summary (5/12) -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<!-- Main Balance Card -->
+<div class="glass-panel rounded-3xl p-8 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[120px] text-white">account_balance_wallet</span>
+</div>
+<div class="relative z-10">
+<p class="text-slate-400 font-medium mb-1">Total Available Balance</p>
+<h2 class="text-5xl font-bold text-white tracking-tight mb-6">$1,240.50</h2>
+<div class="flex gap-3 mb-8">
+<span class="bg-primary/20 text-primary text-xs font-bold px-3 py-1.5 rounded-full border border-primary/20 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +12% this month
+                                </span>
+<span class="bg-white/5 text-slate-300 text-xs font-bold px-3 py-1.5 rounded-full border border-white/5">
+                                    Threshold met
+                                </span>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-6 border-t border-white/10">
+<div>
+<p class="text-slate-400 text-sm mb-1">Pending Earnings</p>
+<p class="text-white text-xl font-bold">$45.00</p>
+</div>
+<div>
+<p class="text-slate-400 text-sm mb-1">Lifetime Earnings</p>
+<p class="text-white text-xl font-bold">$3,500.00</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Info Card -->
+<div class="glass-panel rounded-3xl p-6 flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 border border-blue-500/20">
+<span class="material-symbols-outlined">info</span>
+</div>
+<div>
+<h3 class="text-white font-bold mb-1">Withdrawal Policy</h3>
+<p class="text-slate-400 text-sm leading-relaxed">
+                                Withdrawals are processed within 24 hours. Minimum withdrawal amount is $50.00. Crypto transactions may incur network fees.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Right Column: Withdrawal Form (7/12) -->
+<div class="lg:col-span-7">
+<div class="glass-panel rounded-3xl p-8 h-full flex flex-col">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-2xl font-bold text-white">Request Payout</h3>
+<span class="text-slate-400 text-sm">Step 1 of 2</span>
+</div>
+<form class="flex flex-col gap-6 flex-grow" onsubmit="event.preventDefault()">
+<!-- Payment Method Selector -->
+<div class="grid grid-cols-3 gap-3">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="method" type="radio"/>
+<div class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 peer-checked:bg-primary/20 peer-checked:border-primary transition-all">
+<span class="material-symbols-outlined text-3xl mb-1 text-slate-300 peer-checked:text-primary">currency_bitcoin</span>
+<span class="text-xs font-bold text-slate-300 peer-checked:text-white">Crypto</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="method" type="radio"/>
+<div class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 peer-checked:bg-primary/20 peer-checked:border-primary transition-all">
+<span class="material-symbols-outlined text-3xl mb-1 text-slate-300 peer-checked:text-primary">account_balance</span>
+<span class="text-xs font-bold text-slate-300 peer-checked:text-white">Bank</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="method" type="radio"/>
+<div class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 peer-checked:bg-primary/20 peer-checked:border-primary transition-all">
+<span class="material-symbols-outlined text-3xl mb-1 text-slate-300 peer-checked:text-primary">payments</span>
+<span class="text-xs font-bold text-slate-300 peer-checked:text-white">PayPal</span>
+</div>
+</label>
+</div>
+<!-- Amount Input -->
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-300 ml-1">Withdrawal Amount</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="text-slate-400 font-bold">$</span>
+</div>
+<input class="w-full glass-input pl-10 pr-20 py-4 rounded-xl text-lg font-bold placeholder-slate-500 focus:outline-none transition-all" min="50" placeholder="0.00" type="number"/>
+<button class="absolute inset-y-2 right-2 px-4 bg-white/10 hover:bg-white/20 text-xs font-bold text-primary rounded-lg transition-colors border border-white/5" type="button">
+                                        MAX
+                                    </button>
+</div>
+<div class="flex justify-between px-1">
+<span class="text-xs text-slate-500">Min: $50.00</span>
+<span class="text-xs text-slate-500">Fee: $1.50</span>
+</div>
+</div>
+<!-- Wallet Address -->
+<div class="space-y-2">
+<label class="text-sm font-semibold text-slate-300 ml-1">Wallet Address / Link</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-500 text-[20px]">link</span>
+</div>
+<input class="w-full glass-input pl-11 pr-12 py-4 rounded-xl text-base font-medium placeholder-slate-500 focus:outline-none transition-all" placeholder="Enter your USDT (TRC20) or BTC address" type="text"/>
+<button class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-white transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">content_paste</span>
+</button>
+</div>
+</div>
+<div class="mt-auto pt-6">
+<button class="w-full py-4 bg-primary hover:bg-primary-dark text-white font-bold rounded-full shadow-glow transition-all transform active:scale-[0.99] flex items-center justify-center gap-2 group">
+                                    Process Withdrawal
+                                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Bottom Section: Transaction History -->
+<div class="glass-panel rounded-3xl overflow-hidden flex flex-col">
+<div class="p-6 border-b border-white/10 flex items-center justify-between">
+<h3 class="text-xl font-bold text-white">Transaction History</h3>
+<div class="flex gap-2">
+<button class="px-4 py-2 text-xs font-bold text-white bg-white/10 rounded-full hover:bg-white/20 transition-colors">All Time</button>
+<button class="px-4 py-2 text-xs font-bold text-slate-400 hover:text-white rounded-full transition-colors">Export CSV</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="text-slate-400 text-xs uppercase tracking-wider bg-white/5">
+<th class="px-6 py-4 font-semibold">Date</th>
+<th class="px-6 py-4 font-semibold">Transaction ID</th>
+<th class="px-6 py-4 font-semibold">Method</th>
+<th class="px-6 py-4 font-semibold">Amount</th>
+<th class="px-6 py-4 font-semibold text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5 text-sm">
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4 text-slate-300 font-medium">Oct 24, 2023 <span class="text-slate-500 text-xs block">10:42 AM</span></td>
+<td class="px-6 py-4 text-slate-400 font-mono">#TRX-9921-A8</td>
+<td class="px-6 py-4 text-white">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400">
+<span class="material-symbols-outlined text-[14px]">currency_bitcoin</span>
+</div>
+                                        USDT (TRC20)
+                                    </div>
+</td>
+<td class="px-6 py-4 text-white font-bold">$500.00</td>
+<td class="px-6 py-4 text-right">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-primary/20 text-primary border border-primary/20">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                        Paid
+                                    </span>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4 text-slate-300 font-medium">Oct 20, 2023 <span class="text-slate-500 text-xs block">03:15 PM</span></td>
+<td class="px-6 py-4 text-slate-400 font-mono">#TRX-8812-B2</td>
+<td class="px-6 py-4 text-white">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400">
+<span class="material-symbols-outlined text-[14px]">payments</span>
+</div>
+                                        PayPal
+                                    </div>
+</td>
+<td class="px-6 py-4 text-white font-bold">$150.00</td>
+<td class="px-6 py-4 text-right">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-yellow-500/20 text-yellow-400 border border-yellow-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse"></span>
+                                        Pending
+                                    </span>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4 text-slate-300 font-medium">Sep 15, 2023 <span class="text-slate-500 text-xs block">09:00 AM</span></td>
+<td class="px-6 py-4 text-slate-400 font-mono">#TRX-7741-C9</td>
+<td class="px-6 py-4 text-white">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400">
+<span class="material-symbols-outlined text-[14px]">account_balance</span>
+</div>
+                                        Bank Transfer
+                                    </div>
+</td>
+<td class="px-6 py-4 text-white font-bold">$1,200.00</td>
+<td class="px-6 py-4 text-right">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-primary/20 text-primary border border-primary/20">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                        Paid
+                                    </span>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4 text-slate-300 font-medium">Aug 02, 2023 <span class="text-slate-500 text-xs block">01:30 PM</span></td>
+<td class="px-6 py-4 text-slate-400 font-mono">#TRX-5532-F1</td>
+<td class="px-6 py-4 text-white">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400">
+<span class="material-symbols-outlined text-[14px]">currency_bitcoin</span>
+</div>
+                                        BTC
+                                    </div>
+</td>
+<td class="px-6 py-4 text-white font-bold">$50.00</td>
+<td class="px-6 py-4 text-right">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-red-500/20 text-red-400 border border-red-500/20">
+<span class="material-symbols-outlined text-[14px]">error</span>
+                                        Failed
+                                    </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-white/10 flex justify-center">
+<button class="text-sm text-slate-400 hover:text-white transition-colors font-medium flex items-center gap-1">
+                        View All Transactions
+                        <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+</body></html>
