@@ -15,9 +15,9 @@ export default function Settings() {
         <div className="w-full max-w-4xl mx-auto py-8">
             {/* Breadcrumbs */}
             <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-6">
-                <Link className="hover:text-admin-primary transition-colors" to="/user/dashboard">Dashboard</Link>
+                <Link className="hover:text-admin-primary transition-colors" to="/admin/pulse">Dashboard</Link>
                 <span className="material-symbols-outlined text-xs">chevron_right</span>
-                <span className="text-gray-800 dark:text-white font-medium">Profile Settings</span>
+                <span className="text-gray-800 dark:text-white font-medium">Admin Settings</span>
             </div>
 
             <div className="glass-panel rounded-3xl overflow-hidden relative border border-gray-200 dark:border-white/10 shadow-xl bg-card-light dark:bg-card-dark">

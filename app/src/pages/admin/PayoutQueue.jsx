@@ -86,7 +86,7 @@ export default function PayoutQueue() {
                             <div className="flex items-center gap-2 text-gray-700 dark:text-white/80 text-sm">
                                 <span className="material-symbols-outlined text-[#00457C] text-[18px]">account_balance_wallet</span>
                                 <span className="truncate">PayPal: jane@...</span>
-                                <button className="text-[#4bbe4f] hover:hover:text-[#3da140] dark:hover:text-white transition-colors ml-auto">
+                                <button className="text-[#4bbe4f] hover:text-[#3da140] dark:hover:text-white transition-colors ml-auto">
                                     <span className="material-symbols-outlined text-[16px]">content_copy</span>
                                 </button>
                             </div>
@@ -121,7 +121,7 @@ export default function PayoutQueue() {
                             <div className="flex items-center gap-2 text-gray-700 dark:text-white/80 text-sm">
                                 <span className="material-symbols-outlined text-gray-500 dark:text-white text-[18px]">account_balance</span>
                                 <span className="truncate">Wire: ****4291</span>
-                                <button className="text-[#4bbe4f] hover:hover:text-[#3da140] dark:hover:text-white transition-colors ml-auto">
+                                <button className="text-[#4bbe4f] hover:text-[#3da140] dark:hover:text-white transition-colors ml-auto">
                                     <span className="material-symbols-outlined text-[16px]">content_copy</span>
                                 </button>
                             </div>
@@ -129,6 +129,111 @@ export default function PayoutQueue() {
                         <div className="col-span-2 flex justify-center gap-2 opacity-90 group-hover:opacity-100 transition-opacity">
                             <button className="bg-blue-500/20 hover:bg-blue-500 text-blue-600 dark:text-blue-400 hover:text-white border border-blue-200 dark:border-blue-500/30 rounded-full px-3 py-1.5 flex items-center gap-1 text-xs font-bold transition-all w-full justify-center" title="Mark Paid">
                                 <span>Mark Paid</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Row 3 */}
+                    <div className="group grid grid-cols-12 gap-4 px-6 py-4 border-b border-gray-100 dark:border-white/5 items-center hover:bg-gray-50 dark:hover:bg-white/5 transition-all duration-200">
+                        <div className="col-span-1 flex justify-center">
+                            <input className="rounded border-gray-300 dark:border-white/20 bg-white dark:bg-white/5 text-[#4bbe4f] focus:ring-[#4bbe4f]/50 focus:ring-offset-0 w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity cursor-pointer" type="checkbox" />
+                        </div>
+                        <div className="col-span-3 flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden border border-gray-200 dark:border-white/10">
+                                <img alt="Esther" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS_dX5-gbZyZE6c3eISJZOeN-0yL7DSZ_l5NTH9XGu4iOVJt-qltGon7GhSvrWrsQ1uz1s4NMUB-8X-wAF5pG8z6Xm8xof6v2GGpUuP1evIaU4HWte_6yt8CLDMmZbyXP1vjF9rd6P1-QfMsK-V89n2js1owq61IbZCTnl8K7xLP-5TWlUQIke96o5UsCBWF9gheklQMDDjhWyQ-4Aj2Hv59Iz7VBE4viSz52dmpUB5ueGviILJmn3s1-56MEdWX9Qj_j-IDhu1kI" />
+                            </div>
+                            <div>
+                                <p className="text-gray-900 dark:text-white font-semibold text-sm">Esther Howard</p>
+                                <p className="text-gray-500 dark:text-white/40 text-xs">ID: #ARS-7741</p>
+                            </div>
+                        </div>
+                        <div className="col-span-2 text-gray-700 dark:text-white/70 text-sm font-medium">Oct 23, 2023 <span className="text-gray-400 dark:text-white/30 text-xs ml-1">04:30 PM</span></div>
+                        <div className="col-span-2 text-right pr-8 font-mono font-bold text-gray-900 dark:text-white text-base tracking-tight">$75.50</div>
+                        <div className="col-span-2">
+                            <div className="flex items-center gap-2 text-gray-700 dark:text-white/80 text-sm">
+                                <span className="material-symbols-outlined text-[#00457C] text-[18px]">account_balance_wallet</span>
+                                <span className="truncate">PayPal: est@how.com</span>
+                                <button className="text-[#4bbe4f] hover:text-[#3da140] transition-colors ml-auto">
+                                    <span className="material-symbols-outlined text-[16px]">content_copy</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div className="col-span-2 flex justify-center gap-2 opacity-90 group-hover:opacity-100 transition-opacity">
+                            <button className="bg-[#4bbe4f]/90 hover:bg-[#4bbe4f] text-white dark:text-[#0a1f0a] rounded-full p-2 shadow-[0_0_15px_rgba(76,175,80,0.3)] transition-all transform hover:scale-110" title="Approve">
+                                <span className="material-symbols-outlined text-[20px] font-bold">check</span>
+                            </button>
+                            <button className="bg-red-500/10 hover:bg-red-500 text-red-500 hover:text-white border border-red-500/30 rounded-full p-2 transition-all transform hover:scale-110" title="Reject">
+                                <span className="material-symbols-outlined text-[20px] font-bold">close</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Row 4 */}
+                    <div className="group grid grid-cols-12 gap-4 px-6 py-4 border-b border-gray-100 dark:border-white/5 items-center hover:bg-gray-50 dark:hover:bg-white/5 transition-all duration-200">
+                        <div className="col-span-1 flex justify-center">
+                            <input className="rounded border-gray-300 dark:border-white/20 bg-white dark:bg-white/5 text-[#4bbe4f] focus:ring-[#4bbe4f]/50 focus:ring-offset-0 w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity cursor-pointer" type="checkbox" />
+                        </div>
+                        <div className="col-span-3 flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden border border-gray-200 dark:border-white/10">
+                                <img alt="Cameron" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXpNU3XKgCpGLPbJyFiuLAxhRkm1aR78O6ihiZD-NYjSqxhfK09ENcuk7POzmG5dFULnZ6OsOftn05w-PKTOOXL_R9W-qjzRHuy69UbJZFX7rca9ooqxqcCepDmXTLo-EKTxecOdacmNomMSBUY38W4ZVv2-F50s-fQajgWbgbKIn8DVv5_lTYuKr1aP3DV9SyK4bkI-m1vr8TDwJnCyRCHqNdjJsDpdUeV1aBdghgAcXvLJWR7w-A7wOAeEP0Cui7m5_KTBs-xf0" />
+                            </div>
+                            <div>
+                                <p className="text-gray-900 dark:text-white font-semibold text-sm">Cameron W.</p>
+                                <p className="text-gray-500 dark:text-white/40 text-xs">ID: #ARS-1209</p>
+                            </div>
+                        </div>
+                        <div className="col-span-2 text-gray-700 dark:text-white/70 text-sm font-medium">Oct 23, 2023 <span className="text-gray-400 dark:text-white/30 text-xs ml-1">02:20 PM</span></div>
+                        <div className="col-span-2 text-right pr-8 font-mono font-bold text-gray-900 dark:text-white text-base tracking-tight">$3,420.00</div>
+                        <div className="col-span-2">
+                            <div className="flex items-center gap-2 text-gray-700 dark:text-white/80 text-sm">
+                                <span className="material-symbols-outlined text-gray-600 dark:text-white text-[18px]">currency_bitcoin</span>
+                                <span className="truncate">BTC Wallet: 3J98...</span>
+                                <button className="text-[#4bbe4f] hover:text-[#3da140] transition-colors ml-auto">
+                                    <span className="material-symbols-outlined text-[16px]">content_copy</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div className="col-span-2 flex justify-center gap-2 opacity-90 group-hover:opacity-100 transition-opacity">
+                            <button className="bg-[#4bbe4f]/90 hover:bg-[#4bbe4f] text-white dark:text-[#0a1f0a] rounded-full p-2 shadow-[0_0_15px_rgba(76,175,80,0.3)] transition-all transform hover:scale-110" title="Approve">
+                                <span className="material-symbols-outlined text-[20px] font-bold">check</span>
+                            </button>
+                            <button className="bg-red-500/10 hover:bg-red-500 text-red-500 hover:text-white border border-red-500/30 rounded-full p-2 transition-all transform hover:scale-110" title="Reject">
+                                <span className="material-symbols-outlined text-[20px] font-bold">close</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Row 5 — Flagged */}
+                    <div className="group grid grid-cols-12 gap-4 px-6 py-4 border-b border-gray-100 dark:border-white/5 items-center hover:bg-gray-50 dark:hover:bg-white/5 transition-all duration-200">
+                        <div className="col-span-1 flex justify-center">
+                            <input className="rounded border-gray-300 dark:border-white/20 bg-white dark:bg-white/5 text-[#4bbe4f] focus:ring-[#4bbe4f]/50 focus:ring-offset-0 w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity cursor-pointer" type="checkbox" />
+                        </div>
+                        <div className="col-span-3 flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden border border-gray-200 dark:border-white/10">
+                                <img alt="Leslie" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBchLfJIeipx9ZVFNIMnyTVybHkrTXWt0kRxNcMW7kdiv9zvSEEtjAX6vNO8KfmCsGlxw3-ZpknjEm5gCOeOqHZ6ialiAx__ByI22Y1LCi2eJRylWcIKMrEvn14Y7TXtizOSeKLPxrikWpZNjs_7VKnnZGLTzzDbMynDzWXb4r0HEKFIzlXPxBU7s_UE4Er6t10lXiCAf2-N7c4fGOxGmqSYJzvgTuk8sUrwNEP8-MClQuZ4nN986ooDnTyMMseYw88oZ-GStAGJ0Q" />
+                            </div>
+                            <div>
+                                <p className="text-gray-900 dark:text-white font-semibold text-sm">Leslie Alexander</p>
+                                <p className="text-gray-500 dark:text-white/40 text-xs">ID: #ARS-5531</p>
+                            </div>
+                        </div>
+                        <div className="col-span-2 text-gray-700 dark:text-white/70 text-sm font-medium">Oct 23, 2023 <span className="text-gray-400 dark:text-white/30 text-xs ml-1">11:05 AM</span></div>
+                        <div className="col-span-2 text-right pr-8 font-mono font-bold text-gray-900 dark:text-white text-base tracking-tight">$220.00</div>
+                        <div className="col-span-2">
+                            <div className="flex items-center gap-2 text-gray-700 dark:text-white/80 text-sm">
+                                <span className="material-symbols-outlined text-[#00457C] text-[18px]">account_balance_wallet</span>
+                                <span className="truncate">PayPal: les@alex.co</span>
+                                <button className="text-[#4bbe4f] hover:text-[#3da140] transition-colors ml-auto">
+                                    <span className="material-symbols-outlined text-[16px]">content_copy</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div className="col-span-2 flex justify-center gap-2 opacity-90 group-hover:opacity-100 transition-opacity">
+                            <div className="px-3 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/30 text-yellow-600 dark:text-yellow-500 text-xs font-bold uppercase tracking-wide">
+                                Flagged
+                            </div>
+                            <button className="bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 text-gray-600 dark:text-white rounded-full p-1.5 transition-all">
+                                <span className="material-symbols-outlined text-[16px]">visibility</span>
                             </button>
                         </div>
                     </div>

@@ -20,6 +20,7 @@ import UserSettings from './pages/user/Settings';
 import NetworkPulse from './pages/admin/NetworkPulse';
 import PayoutQueue from './pages/admin/PayoutQueue';
 import AdminSettings from './pages/admin/Settings';
+import UsersNodes from './pages/admin/UsersNodes';
 
 function App() {
   return (
@@ -46,7 +47,8 @@ function App() {
         <Route element={<AdminLayout />}>
           <Route path="/admin" element={<Navigate to="/admin/pulse" replace />} />
           <Route path="/admin/pulse" element={<NetworkPulse />} />
-          <Route path="/admin/payout-queue" element={<PayoutQueue />} />
+          <Route path="/admin/payouts" element={<PayoutQueue />} />
+          <Route path="/admin/users" element={<UsersNodes />} />
           <Route path="/admin/settings" element={<AdminSettings />} />
         </Route>
 

@@ -36,9 +36,9 @@
   }
 
   .dark .admin-layout .glass-panel {
-    background: rgba(6, 78, 59, 0.35);
+    background: rgba(22, 43, 24, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
   }
 
   html:not(.dark) .admin-layout .glass-panel {
@@ -140,9 +140,10 @@
     background: rgba(255, 255, 255, 0.5);
     border: 1px solid rgba(16, 185, 129, 0.1);
   }
+
   .dark .admin-layout .glass-card {
-    background: linear-gradient(145deg, rgba(6, 78, 59, 0.4) 0%, rgba(4, 120, 87, 0.1) 100%);
-    border: 1px solid rgba(16, 185, 129, 0.2);
+    background: rgba(22, 43, 24, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
 }

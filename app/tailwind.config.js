@@ -40,6 +40,7 @@ export default {
                 },
                 // Admin Space
                 "admin-primary": "#10B981",
+                "admin-primary-hover": "#059669",
                 "admin-primary-dark": "#047857",
                 "admin-forest-darkest": "#022c22",
                 "admin-forest-dark": "#064e3b",
