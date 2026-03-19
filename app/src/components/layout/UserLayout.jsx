@@ -12,11 +12,11 @@ export default function UserLayout() {
     }
 
     const navLinks = [
-        { name: 'Command Center', path: '/user/dashboard', icon: 'dashboard' },
-        { name: 'VPS Nodes', path: '/user/vps', icon: 'dns' },
-        { name: 'Earnings', path: '/user/earnings', icon: 'account_balance_wallet' },
-        { name: 'Active Surveys', path: '/user/dashboard', icon: 'poll', badge: '3' },
-        { name: 'Settings', path: '/user/settings', icon: 'settings' },
+        { name: 'Dashboard', path: '/user/dashboard', icon: 'dashboard' },
+        { name: 'VPS Status', path: '/user/vps-status', icon: 'dns' },
+        { name: 'Withdraws', path: '/user/withdraws', icon: 'account_balance_wallet' },
+        { name: 'Support Requests', path: '/user/support-requests', icon: 'support_agent' },
+        { name: 'Notice', path: '/user/notice', icon: 'notifications' },
     ];
 
     return (

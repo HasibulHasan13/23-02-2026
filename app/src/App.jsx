@@ -5,22 +5,27 @@ import AuthLayout from './components/layout/AuthLayout';
 import UserLayout from './components/layout/UserLayout';
 import AdminLayout from './components/layout/AdminLayout';
 
-// Pages
-import Home from './pages/Home';
+// Landing
+import Home from './pages/landing/Home';
+
+// Auth
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 
 // User Pages
 import Dashboard from './pages/user/Dashboard';
-import VPSNodes from './pages/user/VPSNodes';
-import Earnings from './pages/user/Earnings';
-import UserSettings from './pages/user/Settings';
+import VPSStatus from './pages/user/VPSStatus';
+import Withdraws from './pages/user/Withdraws';
+import SupportRequests from './pages/user/SupportRequests';
+import Notice from './pages/user/Notice';
 
 // Admin Pages
-import NetworkPulse from './pages/admin/NetworkPulse';
-import PayoutQueue from './pages/admin/PayoutQueue';
-import AdminSettings from './pages/admin/Settings';
-import UsersNodes from './pages/admin/UsersNodes';
+import AdminDashboard from './pages/admin/Dashboard';
+import WithdrawRequests from './pages/admin/WithdrawRequests';
+import AdminSupportRequests from './pages/admin/SupportRequests';
+import ManageVPS from './pages/admin/ManageVPS';
+import ManageEmployees from './pages/admin/ManageEmployees';
+import MarketingAdminNotes from './pages/admin/MarketingAdminNotes';
 
 function App() {
   return (
@@ -38,18 +43,21 @@ function App() {
         <Route path="/user" element={<UserLayout />}>
           <Route index element={<Navigate to="/user/dashboard" replace />} />
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="vps" element={<VPSNodes />} />
-          <Route path="earnings" element={<Earnings />} />
-          <Route path="settings" element={<UserSettings />} />
+          <Route path="vps-status" element={<VPSStatus />} />
+          <Route path="withdraws" element={<Withdraws />} />
+          <Route path="support-requests" element={<SupportRequests />} />
+          <Route path="notice" element={<Notice />} />
         </Route>
 
         {/* Admin Routes */}
         <Route element={<AdminLayout />}>
-          <Route path="/admin" element={<Navigate to="/admin/pulse" replace />} />
-          <Route path="/admin/pulse" element={<NetworkPulse />} />
-          <Route path="/admin/payouts" element={<PayoutQueue />} />
-          <Route path="/admin/users" element={<UsersNodes />} />
-          <Route path="/admin/settings" element={<AdminSettings />} />
+          <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/withdraw-requests" element={<WithdrawRequests />} />
+          <Route path="/admin/support-requests" element={<AdminSupportRequests />} />
+          <Route path="/admin/manage-vps" element={<ManageVPS />} />
+          <Route path="/admin/manage-employees" element={<ManageEmployees />} />
+          <Route path="/admin/marketing-notes" element={<MarketingAdminNotes />} />
         </Route>
 
         {/* Fallback */}
